@@ -1,6 +1,50 @@
 import React from 'react'
 
-const ArtistSummary = ({data}) => {
+const ArtistSummary = ({}) => {
+
+    const data = [
+        {
+            name: 'Night Drive',
+            photo: 'images/ND.jpg'
+        },
+        {
+            name: 'MNYNMS',
+            photo: 'images/MNYNMS.jpg'
+        },
+        {
+            name: 'Night Drive',
+            photo: 'images/ND.jpg'
+        },
+        {
+            name: 'MNYNMS',
+            photo: 'images/MNYNMS.jpg'
+        },
+        {
+            name: 'Night Drive',
+            photo: 'images/ND.jpg'
+        },
+        {
+            name: 'MNYNMS',
+            photo: 'images/MNYNMS.jpg'
+        },
+        {
+            name: 'Night Drive',
+            photo: 'images/ND.jpg'
+        },
+        {
+            name: 'MNYNMS',
+            photo: 'images/MNYNMS.jpg'
+        },
+        {
+            name: 'Night Drive',
+            photo: 'images/ND.jpg'
+        },
+        {
+            name: 'MNYNMS',
+            photo: 'images/MNYNMS.jpg'
+        }
+    ];
+
     return (
         <div>
             {data.map((artist, index) => {
