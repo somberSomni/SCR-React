@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Cabin:400,700');
+
+body {
+    font-family: 'Abel';
+}
+
+a {
+    color: black;
+}
+
+.artist-photo{
+    height: 127px;
+    width: 359px;
+}
+
+.navbar {
+    font-size: medium;
+}
+
+.navbar-brand {
+    font-size: xx-large;
+}
+
+.feature-text {
+    font-size: 16px;
+}
+
+hr {
+    border-width: 2px;
+    color: black;
+}
+
+.page-header {
+    text-align: right;
+}
+
+.news-body {
+    font-size: large;
+}
+
+.btn-spotify {
+    width: 100px !important;
+    background-color: #1DD069;
+    border-color: #1DD069;
+    font-size: large;
+}
+.btn-spotify:hover {
+    background-color: #1DD069;
+}
+
+.btn-spotify:visited {
+    background-color: #1DD069;
+    border-color: #1DD069;
+}
+
+.btn-buy {
+    width: 100px !important;
+    background-color: black;
+    border-color: black;
+    font-size: large;
+}
+.btn-buy:hover {
+    background-color: black;
+    border-color: black;
+}
+
+.btn-buy:visited {
+    background-color: black;
+    border-color: black;
+}
+
+.btn-artist {
+    width: 100px !important;
+    background-color: purple;
+    border-color: purple;
+    font-size: large;
+}
+.btn-artist:hover {
+    background-color: purple;
+    border-color: purple;
+}
+
+.btn-artist:visited {
+    background-color: purple;
+    border-color: purple;
+}
