@@ -5,13 +5,7 @@ class ArtistProfile extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            header: "images/artist-header.jpg",
-            soundcloud: "",
-            products: [
-                {
-                  art: ""
-                }
-            ]
+            header: "images/artist-header.jpg"
         }
     }
     render(){
@@ -29,25 +23,25 @@ class ArtistProfile extends React.Component {
                     <div className="col-md-9">
                         <h2>About</h2>
                         <div className="well">
-                            Main information
+                            Bio Component?
                         </div>
                     </div>
 
                     <div className="col-md-3">
                         <h2>Product</h2>
                         <div className="well">
-                            Product information
+                            Product Component
                         </div>
                         <br />
                         <h2>Links</h2>
                         <div className="well">
-                            Product information
+                            Links Component
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
-};
+}
 
 export default ArtistProfile

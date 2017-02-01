@@ -26715,11 +26715,7 @@
 	        var _this = _possibleConstructorReturn(this, (ArtistProfile.__proto__ || Object.getPrototypeOf(ArtistProfile)).call(this, props));
 
 	        _this.state = {
-	            header: "images/artist-header.jpg",
-	            soundcloud: "",
-	            products: [{
-	                art: ""
-	            }]
+	            header: "images/artist-header.jpg"
 	        };
 	        return _this;
 	    }
@@ -26756,7 +26752,7 @@
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'well' },
-	                            'Main information'
+	                            'Bio Component?'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
@@ -26770,7 +26766,7 @@
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'well' },
-	                            'Product information'
+	                            'Product Component'
 	                        ),
 	                        _react2.default.createElement('br', null),
 	                        _react2.default.createElement(
@@ -26781,7 +26777,7 @@
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'well' },
-	                            'Product information'
+	                            'Links Component'
 	                        )
 	                    )
 	                )
@@ -26791,8 +26787,6 @@
 
 	    return ArtistProfile;
 	}(_react2.default.Component);
-
-	;
 
 	exports.default = ArtistProfile;
 
