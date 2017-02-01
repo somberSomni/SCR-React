@@ -5,43 +5,18 @@ const ArtistSummary = ({}) => {
     const data = [
         {
             name: 'Night Drive',
-            photo: 'images/ND.jpg'
+            path: 'http://localhost:3000/#/?_k=dzkgj6/artists/Night-Drive',
+            photo: 'images/artist-summary.jpg'
         },
         {
             name: 'MNYNMS',
-            photo: 'images/MNYNMS.jpg'
+            path: 'http://localhost:3000/#/?_k=dzkgj6/artists/MNYNMS',
+            photo: 'images/artist-summary.jpg'
         },
         {
-            name: 'Night Drive',
-            photo: 'images/ND.jpg'
-        },
-        {
-            name: 'MNYNMS',
-            photo: 'images/MNYNMS.jpg'
-        },
-        {
-            name: 'Night Drive',
-            photo: 'images/ND.jpg'
-        },
-        {
-            name: 'MNYNMS',
-            photo: 'images/MNYNMS.jpg'
-        },
-        {
-            name: 'Night Drive',
-            photo: 'images/ND.jpg'
-        },
-        {
-            name: 'MNYNMS',
-            photo: 'images/MNYNMS.jpg'
-        },
-        {
-            name: 'Night Drive',
-            photo: 'images/ND.jpg'
-        },
-        {
-            name: 'MNYNMS',
-            photo: 'images/MNYNMS.jpg'
+            name: 'NIGHT DRIVE',
+            path: 'http://localhost:3000/#/?_k=dzkgj6/artists/Night-Drive',
+            photo: 'images/artist-summary.jpg'
         }
     ];
 
@@ -50,13 +25,12 @@ const ArtistSummary = ({}) => {
             {data.map((artist, index) => {
                 return (
                     <div className="col-md-4">
-                        <img src={artist.photo} className="artist-photo"/>
-                        <h3>{artist.name}</h3>
+                        <a href={artist.path}><img src={artist.photo} className="artist-photo"/></a>
+                        <h3><a href={artist.path}>{artist.name}</a></h3>
                     </div>
                 )
             })}
         </div>
-
     )
 };
 

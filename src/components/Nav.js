@@ -12,7 +12,7 @@ const Nav = ({}) => {
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                     </button>
-                    <a className="navbar-brand">SOUND CONTROL RECORDS</a>
+                    <a className="navbar-brand" href="http://localhost:3000/">SOUND CONTROL RECORDS</a>
                 </div>
 
                 <div className="collapse navbar-collapse" id="navbar">

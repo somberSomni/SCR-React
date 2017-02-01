@@ -26165,6 +26165,10 @@
 
 	var _Artists2 = _interopRequireDefault(_Artists);
 
+	var _ArtistProfile = __webpack_require__(236);
+
+	var _ArtistProfile2 = _interopRequireDefault(_ArtistProfile);
+
 	var _reactRouter = __webpack_require__(178);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -26174,6 +26178,7 @@
 	    { history: _reactRouter.hashHistory },
 	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Main2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: '/artists', component: _Artists2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/artists/:username', component: _ArtistProfile2.default }),
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Main2.default })
 	);
 
@@ -26498,7 +26503,7 @@
 	                ),
 	                _react2.default.createElement(
 	                    "a",
-	                    { className: "navbar-brand" },
+	                    { className: "navbar-brand", href: "http://localhost:3000/" },
 	                    "SOUND CONTROL RECORDS"
 	                )
 	            ),
@@ -26633,34 +26638,16 @@
 
 	    var data = [{
 	        name: 'Night Drive',
-	        photo: 'images/ND.jpg'
+	        path: 'http://localhost:3000/#/?_k=dzkgj6/artists/Night-Drive',
+	        photo: 'images/artist-summary.jpg'
 	    }, {
 	        name: 'MNYNMS',
-	        photo: 'images/MNYNMS.jpg'
+	        path: 'http://localhost:3000/#/?_k=dzkgj6/artists/MNYNMS',
+	        photo: 'images/artist-summary.jpg'
 	    }, {
-	        name: 'Night Drive',
-	        photo: 'images/ND.jpg'
-	    }, {
-	        name: 'MNYNMS',
-	        photo: 'images/MNYNMS.jpg'
-	    }, {
-	        name: 'Night Drive',
-	        photo: 'images/ND.jpg'
-	    }, {
-	        name: 'MNYNMS',
-	        photo: 'images/MNYNMS.jpg'
-	    }, {
-	        name: 'Night Drive',
-	        photo: 'images/ND.jpg'
-	    }, {
-	        name: 'MNYNMS',
-	        photo: 'images/MNYNMS.jpg'
-	    }, {
-	        name: 'Night Drive',
-	        photo: 'images/ND.jpg'
-	    }, {
-	        name: 'MNYNMS',
-	        photo: 'images/MNYNMS.jpg'
+	        name: 'NIGHT DRIVE',
+	        path: 'http://localhost:3000/#/?_k=dzkgj6/artists/Night-Drive',
+	        photo: 'images/artist-summary.jpg'
 	    }];
 
 	    return _react2.default.createElement(
@@ -26670,11 +26657,19 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'col-md-4' },
-	                _react2.default.createElement('img', { src: artist.photo, className: 'artist-photo' }),
+	                _react2.default.createElement(
+	                    'a',
+	                    { href: artist.path },
+	                    _react2.default.createElement('img', { src: artist.photo, className: 'artist-photo' })
+	                ),
 	                _react2.default.createElement(
 	                    'h3',
 	                    null,
-	                    artist.name
+	                    _react2.default.createElement(
+	                        'a',
+	                        { href: artist.path },
+	                        artist.name
+	                    )
 	                )
 	            );
 	        })
@@ -26682,6 +26677,124 @@
 	};
 
 	exports.default = ArtistSummary;
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Nav = __webpack_require__(233);
+
+	var _Nav2 = _interopRequireDefault(_Nav);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ArtistProfile = function (_React$Component) {
+	    _inherits(ArtistProfile, _React$Component);
+
+	    function ArtistProfile(props) {
+	        _classCallCheck(this, ArtistProfile);
+
+	        var _this = _possibleConstructorReturn(this, (ArtistProfile.__proto__ || Object.getPrototypeOf(ArtistProfile)).call(this, props));
+
+	        _this.state = {
+	            header: "images/artist-header.jpg",
+	            soundcloud: "",
+	            products: [{
+	                art: ""
+	            }]
+	        };
+	        return _this;
+	    }
+
+	    _createClass(ArtistProfile, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'main-container' },
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'container' },
+	                    _react2.default.createElement(_Nav2.default, null)
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'container' },
+	                    _react2.default.createElement(
+	                        'h1',
+	                        { className: 'page-header' },
+	                        this.props.params.username
+	                    ),
+	                    _react2.default.createElement('img', { src: this.state.header, alt: '', className: 'header-photo' }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-9' },
+	                        _react2.default.createElement(
+	                            'h2',
+	                            null,
+	                            'About'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'well' },
+	                            'Main information'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'h2',
+	                            null,
+	                            'Product'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'well' },
+	                            'Product information'
+	                        ),
+	                        _react2.default.createElement('br', null),
+	                        _react2.default.createElement(
+	                            'h2',
+	                            null,
+	                            'Links'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'well' },
+	                            'Product information'
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ArtistProfile;
+	}(_react2.default.Component);
+
+	;
+
+	exports.default = ArtistProfile;
 
 /***/ }
 /******/ ]);
