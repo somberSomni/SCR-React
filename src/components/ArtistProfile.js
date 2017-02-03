@@ -14,8 +14,7 @@ class ArtistProfile extends React.Component {
         Axios.get("http://localhost:3000/data.json")
             .then((result) => {
                 const len = Object.keys(result).length;
-                var i;
-                for (i = 0; i < len; i++) {
+                for (var i = 0; i < len; i++) {
                     if (this.props.params.username === result.data.artists[i].id) {
                         this.setState({
                             artists: result.data.artists[i]
