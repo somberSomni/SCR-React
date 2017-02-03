@@ -1,24 +1,44 @@
 import React from 'react';
 import Nav from '../components/Nav';
 import ArtistSummary from '../components/ArtistSummary';
+import Axios from 'axios';
 
-const Artists = ({}) => {
-    return (
-        <div className="main-container">
-            <br />
-            <div className="container">
-                <Nav />
-            </div>
+class Artists extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            artists: []
+        }
+    }
 
-            <div className="container">
-                <h1 className="page-header">Artists</h1>
-            </div>
+    componentDidMount() {
+        Axios.get("http://localhost:3000/data.json")
+            .then((result) => {
+                this.setState({
+                    artists: result.data.artists
+                });
+            })
+    }
 
-            <div className="container">
-                <ArtistSummary />
+    render() {
+        return (
+            <div className="main-container">
+                <br />
+                <div className="container">
+                    <Nav />
+                </div>
+
+                <div className="container">
+                    <h1 className="page-header">Artists</h1>
+                </div>
+
+                <div className="container">
+                    <ArtistSummary data={this.state.artists}/>
+                </div>
             </div>
-        </div>
-    )
-};
+        )
+    }
+}
+;
 
 export default Artists
