@@ -26681,11 +26681,11 @@
 	        data.map(function (artist, index) {
 	            return _react2.default.createElement(
 	                "div",
-	                { className: "col-md-4" },
+	                { className: "col-md-4", key: artist.name },
 	                _react2.default.createElement(
 	                    "a",
 	                    { href: artist.path },
-	                    _react2.default.createElement("img", { src: artist.photo, className: "artist-photo" })
+	                    _react2.default.createElement("img", { src: artist.photo, className: "artist-photo img-responsive" })
 	                ),
 	                _react2.default.createElement(
 	                    "h3",
@@ -27794,6 +27794,14 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
+	var _About = __webpack_require__(254);
+
+	var _About2 = _interopRequireDefault(_About);
+
+	var _Links = __webpack_require__(255);
+
+	var _Links2 = _interopRequireDefault(_Links);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27822,9 +27830,8 @@
 	            var _this2 = this;
 
 	            _axios2.default.get("http://localhost:3000/data.json").then(function (result) {
-	                var len = Object.keys(result).length;
-	                var i;
-	                for (i = 0; i < len; i++) {
+	                var len = Object.keys(result).length - 2;
+	                for (var i = 0; i < len; i++) {
 	                    if (_this2.props.params.username === result.data.artists[i].id) {
 	                        _this2.setState({
 	                            artists: result.data.artists[i]
@@ -27853,7 +27860,7 @@
 	                        { className: 'page-header' },
 	                        this.state.artists.name
 	                    ),
-	                    _react2.default.createElement('img', { src: this.state.artists.header, alt: '' }),
+	                    _react2.default.createElement('img', { src: this.state.artists.header, alt: '', className: 'img-responsive' }),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'col-md-9' },
@@ -27865,7 +27872,7 @@
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'well' },
-	                            this.state.artists.name
+	                            _react2.default.createElement(_About2.default, { artists: this.state.artists })
 	                        )
 	                    ),
 	                    _react2.default.createElement(
@@ -27890,7 +27897,7 @@
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'well' },
-	                            'Links Component'
+	                            _react2.default.createElement(_Links2.default, { artists: this.state.artists })
 	                        )
 	                    )
 	                )
@@ -27904,6 +27911,120 @@
 	;
 
 	exports.default = ArtistProfile;
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var About = function About(_ref) {
+	    var artists = _ref.artists;
+
+	    return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	            'p',
+	            null,
+	            artists.bio
+	        )
+	    );
+	};
+
+	exports.default = About;
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Links = function Links(_ref) {
+	    var artists = _ref.artists;
+
+	    return _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	            "ul",
+	            { id: "social" },
+	            _react2.default.createElement(
+	                "li",
+	                null,
+	                _react2.default.createElement(
+	                    "a",
+	                    { className: "btn btn-social-icon btn-facebook" },
+	                    _react2.default.createElement(
+	                        "i",
+	                        { className: "fa fa-facebook" },
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: artists.facebook },
+	                            " Facebook"
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2.default.createElement(
+	                "li",
+	                null,
+	                _react2.default.createElement(
+	                    "a",
+	                    { className: "btn btn-social-icon btn-twitter" },
+	                    _react2.default.createElement(
+	                        "i",
+	                        { className: "fa fa-twitter" },
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: artists.twitter },
+	                            " Twitter"
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2.default.createElement(
+	                "li",
+	                null,
+	                _react2.default.createElement(
+	                    "a",
+	                    { className: "btn btn-social-icon btn-soundcloud" },
+	                    _react2.default.createElement(
+	                        "i",
+	                        { className: "fa fa-soundcloud" },
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: artists.soundcloud },
+	                            " Soundcloud"
+	                        )
+	                    )
+	                )
+	            )
+	        )
+	    );
+	};
+
+	exports.default = Links;
 
 /***/ }
 /******/ ]);

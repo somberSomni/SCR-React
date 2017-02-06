@@ -1,6 +1,8 @@
 import React from 'react';
 import Nav from '../components/Nav';
 import Axios from 'axios';
+import About from '../components/About';
+import Links from '../components/Links';
 
 class ArtistProfile extends React.Component {
     constructor(props) {
@@ -13,7 +15,7 @@ class ArtistProfile extends React.Component {
     componentDidMount() {
         Axios.get("http://localhost:3000/data.json")
             .then((result) => {
-                const len = Object.keys(result).length;
+                const len = Object.keys(result).length - 2;
                 for (var i = 0; i < len; i++) {
                     if (this.props.params.username === result.data.artists[i].id) {
                         this.setState({
@@ -21,7 +23,7 @@ class ArtistProfile extends React.Component {
                         });
                     }
                 }
-            })
+            });
     }
 
     render() {
@@ -34,11 +36,11 @@ class ArtistProfile extends React.Component {
 
                 <div className="container">
                     <h1 className="page-header">{this.state.artists.name}</h1>
-                    <img src={this.state.artists.header} alt=""/>
+                    <img src={this.state.artists.header} alt="" className="img-responsive"/>
                     <div className="col-md-9">
                         <h2>About</h2>
                         <div className="well">
-                            {this.state.artists.name}
+                            <About artists={this.state.artists}/>
                         </div>
                     </div>
 
@@ -50,14 +52,13 @@ class ArtistProfile extends React.Component {
                         <br />
                         <h2>Links</h2>
                         <div className="well">
-                            Links Component
+                            <Links artists={this.state.artists} />
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
-}
-;
+};
 
 export default ArtistProfile

@@ -8,6 +8,10 @@ a {
     color: black;
 }
 
+#social {
+    list-style-type:none
+}
+
 .header-photo {
     display: block;
     margin-left: auto;
