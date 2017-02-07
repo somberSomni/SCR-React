@@ -27952,8 +27952,6 @@
 	    value: true
 	});
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -27963,47 +27961,38 @@
 	var Links = function Links(_ref) {
 	    var links = _ref.links;
 
-	    if (links) {
-	        var _ret = function () {
 
-	            var myLinks = links;
+	    var myLinks = links;
 
-	            var socialIcons = Object.keys(myLinks).map(function (key) {
-	                var btn = 'btn btn-social-icon btn-' + key;
-	                var fa = 'fa fa-' + key;
+	    var socialIcons = Object.keys(myLinks).map(function (key) {
+	        var btn = 'btn btn-social-icon btn-' + key;
+	        var fa = 'fa fa-' + key;
 
-	                return _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(
-	                        'a',
-	                        { className: btn, href: myLinks[key] },
-	                        _react2.default.createElement(
-	                            'span',
-	                            { className: fa },
-	                            ' ',
-	                            key
-	                        )
-	                    )
-	                );
-	            });
-
-	            return {
-	                v: _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    socialIcons
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	                'a',
+	                { className: btn, href: myLinks[key] },
+	                _react2.default.createElement(
+	                    'span',
+	                    { className: fa },
+	                    ' ',
+	                    key
 	                )
-	            };
-	        }();
+	            )
+	        );
+	    });
 
-	        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
-	    }
 	    return _react2.default.createElement(
 	        'div',
 	        null,
-	        'loading...'
+	        socialIcons
 	    );
+	};
+
+	Links.defaultProps = {
+	    links: {}
 	};
 
 	exports.default = Links;
