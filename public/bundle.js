@@ -26614,6 +26614,7 @@
 	            var _this2 = this;
 
 	            _axios2.default.get("http://localhost:3000/data.json").then(function (result) {
+	                console.log(result);
 	                _this2.setState({
 	                    artists: result.data.artists
 	                });
@@ -26643,7 +26644,7 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'container' },
-	                    _react2.default.createElement(_ArtistSummary2.default, { data: this.state.artists })
+	                    _react2.default.createElement(_ArtistSummary2.default, { artists: this.state.artists })
 	                )
 	            );
 	        }
@@ -26673,15 +26674,15 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ArtistSummary = function ArtistSummary(_ref) {
-	    var data = _ref.data;
+	    var artists = _ref.artists;
 
 	    return _react2.default.createElement(
 	        "div",
 	        null,
-	        data.map(function (artist, index) {
+	        artists.map(function (artist, index) {
 	            return _react2.default.createElement(
 	                "div",
-	                { className: "col-md-4", key: artist.name },
+	                { className: "col-md-4", key: index },
 	                _react2.default.createElement(
 	                    "a",
 	                    { href: artist.path },
@@ -27860,7 +27861,7 @@
 	                        { className: 'page-header' },
 	                        this.state.artists.name
 	                    ),
-	                    _react2.default.createElement('img', { src: this.state.artists.header, alt: '', className: 'img-responsive' }),
+	                    _react2.default.createElement('img', { src: this.state.artists.header, className: 'img-responsive' }),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'col-md-9' },
@@ -27894,11 +27895,8 @@
 	                            null,
 	                            'Links'
 	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'well' },
-	                            _react2.default.createElement(_Links2.default, { artists: this.state.artists })
-	                        )
+	                        _react2.default.createElement('hr', null),
+	                        _react2.default.createElement(_Links2.default, { links: this.state.artists.links })
 	                    )
 	                )
 	            );
@@ -27961,66 +27959,50 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Links = function Links(_ref) {
-	    var artists = _ref.artists;
+	    var links = _ref.links;
 
+	    if (links) {
+	        return _react2.default.createElement(
+	            "div",
+	            null,
+	            _react2.default.createElement(
+	                "a",
+	                { className: "btn btn-social-icon btn-facebook" },
+	                _react2.default.createElement(
+	                    "span",
+	                    { className: "fa fa-facebook" },
+	                    _react2.default.createElement("a", { href: links.facebook })
+	                ),
+	                " Facebook"
+	            ),
+	            _react2.default.createElement("br", null),
+	            _react2.default.createElement(
+	                "a",
+	                { className: "btn btn-social-icon btn-twitter" },
+	                _react2.default.createElement(
+	                    "span",
+	                    { className: "fa fa-twitter" },
+	                    _react2.default.createElement("a", { href: links.twitter })
+	                ),
+	                " Twitter"
+	            ),
+	            _react2.default.createElement("br", null),
+	            _react2.default.createElement(
+	                "a",
+	                { className: "btn btn-social-icon btn-facebook" },
+	                _react2.default.createElement(
+	                    "span",
+	                    { className: "fa fa-soundcloud" },
+	                    _react2.default.createElement("a", { href: links.soundcloud })
+	                ),
+	                " Soundcloud"
+	            )
+	        );
+	    }
 	    return _react2.default.createElement(
 	        "div",
 	        null,
-	        _react2.default.createElement(
-	            "ul",
-	            { id: "social" },
-	            _react2.default.createElement(
-	                "li",
-	                null,
-	                _react2.default.createElement(
-	                    "a",
-	                    { className: "btn btn-social-icon btn-facebook" },
-	                    _react2.default.createElement(
-	                        "i",
-	                        { className: "fa fa-facebook" },
-	                        _react2.default.createElement(
-	                            "a",
-	                            { href: artists.facebook },
-	                            " Facebook"
-	                        )
-	                    )
-	                )
-	            ),
-	            _react2.default.createElement(
-	                "li",
-	                null,
-	                _react2.default.createElement(
-	                    "a",
-	                    { className: "btn btn-social-icon btn-twitter" },
-	                    _react2.default.createElement(
-	                        "i",
-	                        { className: "fa fa-twitter" },
-	                        _react2.default.createElement(
-	                            "a",
-	                            { href: artists.twitter },
-	                            " Twitter"
-	                        )
-	                    )
-	                )
-	            ),
-	            _react2.default.createElement(
-	                "li",
-	                null,
-	                _react2.default.createElement(
-	                    "a",
-	                    { className: "btn btn-social-icon btn-soundcloud" },
-	                    _react2.default.createElement(
-	                        "i",
-	                        { className: "fa fa-soundcloud" },
-	                        _react2.default.createElement(
-	                            "a",
-	                            { href: artists.soundcloud },
-	                            " Soundcloud"
-	                        )
-	                    )
-	                )
-	            )
-	        )
+	        "loading..."
 	    );
 	};
 

@@ -1,29 +1,22 @@
 import React from 'react';
 
-const Links = ({artists}) => {
-    return (
-        <div>
-            <ul id="social">
-                <li>
+const Links = ({links}) => {
+        if(links){
+            return (
+                <div>
                     <a className="btn btn-social-icon btn-facebook">
-                        <i className="fa fa-facebook"><a href={artists.facebook}> Facebook</a></i>
-                    </a>
-                </li>
-
-                <li>
+                        <span className="fa fa-facebook"><a href={links.facebook} /></span> Facebook
+                    </a><br />
                     <a className="btn btn-social-icon btn-twitter">
-                        <i className="fa fa-twitter"><a href={artists.twitter}> Twitter</a></i>
+                        <span className="fa fa-twitter"><a href={links.twitter} /></span> Twitter
+                    </a><br />
+                    <a className="btn btn-social-icon btn-facebook">
+                        <span className="fa fa-soundcloud"><a href={links.soundcloud} /></span> Soundcloud
                     </a>
-                </li>
-
-                <li>
-                    <a className="btn btn-social-icon btn-soundcloud">
-                        <i className="fa fa-soundcloud"><a href={artists.soundcloud}> Soundcloud</a></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    )
+                </div>
+            )
+        }
+        return <div>loading...</div>
 };
 
 export default Links;

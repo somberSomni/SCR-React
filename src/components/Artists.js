@@ -14,6 +14,7 @@ class Artists extends React.Component {
     componentDidMount() {
         Axios.get("http://localhost:3000/data.json")
             .then((result) => {
+                console.log(result);
                 this.setState({
                     artists: result.data.artists
                 });
@@ -33,7 +34,7 @@ class Artists extends React.Component {
                 </div>
 
                 <div className="container">
-                    <ArtistSummary data={this.state.artists}/>
+                    <ArtistSummary artists={this.state.artists}/>
                 </div>
             </div>
         )

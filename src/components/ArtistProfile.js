@@ -36,7 +36,7 @@ class ArtistProfile extends React.Component {
 
                 <div className="container">
                     <h1 className="page-header">{this.state.artists.name}</h1>
-                    <img src={this.state.artists.header} alt="" className="img-responsive"/>
+                    <img src={this.state.artists.header} className="img-responsive"/>
                     <div className="col-md-9">
                         <h2>About</h2>
                         <div className="well">
@@ -51,9 +51,8 @@ class ArtistProfile extends React.Component {
                         </div>
                         <br />
                         <h2>Links</h2>
-                        <div className="well">
-                            <Links artists={this.state.artists} />
-                        </div>
+                        <hr />
+                        <Links links={this.state.artists.links} />
                     </div>
                 </div>
             </div>
