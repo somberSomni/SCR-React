@@ -27803,6 +27803,10 @@
 
 	var _Links2 = _interopRequireDefault(_Links);
 
+	var _Products = __webpack_require__(256);
+
+	var _Products2 = _interopRequireDefault(_Products);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27884,12 +27888,8 @@
 	                            null,
 	                            'Product'
 	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'well' },
-	                            'Product Component'
-	                        ),
-	                        _react2.default.createElement('br', null),
+	                        _react2.default.createElement('hr', null),
+	                        _react2.default.createElement(_Products2.default, null),
 	                        _react2.default.createElement(
 	                            'h2',
 	                            null,
@@ -27946,11 +27946,13 @@
 /* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	var _react = __webpack_require__(1);
 
@@ -27962,51 +27964,75 @@
 	    var links = _ref.links;
 
 	    if (links) {
-	        return _react2.default.createElement(
-	            "div",
-	            null,
-	            _react2.default.createElement(
-	                "a",
-	                { className: "btn btn-social-icon btn-facebook" },
-	                _react2.default.createElement(
-	                    "span",
-	                    { className: "fa fa-facebook" },
-	                    _react2.default.createElement("a", { href: links.facebook })
-	                ),
-	                " Facebook"
-	            ),
-	            _react2.default.createElement("br", null),
-	            _react2.default.createElement(
-	                "a",
-	                { className: "btn btn-social-icon btn-twitter" },
-	                _react2.default.createElement(
-	                    "span",
-	                    { className: "fa fa-twitter" },
-	                    _react2.default.createElement("a", { href: links.twitter })
-	                ),
-	                " Twitter"
-	            ),
-	            _react2.default.createElement("br", null),
-	            _react2.default.createElement(
-	                "a",
-	                { className: "btn btn-social-icon btn-facebook" },
-	                _react2.default.createElement(
-	                    "span",
-	                    { className: "fa fa-soundcloud" },
-	                    _react2.default.createElement("a", { href: links.soundcloud })
-	                ),
-	                " Soundcloud"
-	            )
-	        );
+	        var _ret = function () {
+
+	            var myLinks = links;
+
+	            var socialIcons = Object.keys(myLinks).map(function (key) {
+	                var btn = 'btn btn-social-icon btn-' + key;
+	                var fa = 'fa fa-' + key;
+
+	                return _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        'a',
+	                        { className: btn, href: myLinks[key] },
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: fa },
+	                            ' ',
+	                            key
+	                        )
+	                    )
+	                );
+	            });
+
+	            return {
+	                v: _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    socialIcons
+	                )
+	            };
+	        }();
+
+	        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
 	    }
 	    return _react2.default.createElement(
-	        "div",
+	        'div',
 	        null,
-	        "loading..."
+	        'loading...'
 	    );
 	};
 
 	exports.default = Links;
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+	var Products = function Products(_ref) {
+	    _objectDestructuringEmpty(_ref);
+
+	    return _react2.default.createElement('div', null);
+	};
+
+	exports.default = Products;
 
 /***/ }
 /******/ ]);

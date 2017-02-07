@@ -3,6 +3,7 @@ import Nav from '../components/Nav';
 import Axios from 'axios';
 import About from '../components/About';
 import Links from '../components/Links';
+import Products from '../components/Products';
 
 class ArtistProfile extends React.Component {
     constructor(props) {
@@ -45,14 +46,16 @@ class ArtistProfile extends React.Component {
                     </div>
 
                     <div className="col-md-3">
+
                         <h2>Product</h2>
-                        <div className="well">
-                            Product Component
-                        </div>
-                        <br />
+                        <hr />
+                        <Products />
+
+
                         <h2>Links</h2>
                         <hr />
                         <Links links={this.state.artists.links} />
+
                     </div>
                 </div>
             </div>

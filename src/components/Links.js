@@ -2,18 +2,24 @@ import React from 'react';
 
 const Links = ({links}) => {
         if(links){
+
+            const myLinks = links;
+
+            const socialIcons = Object.keys(myLinks).map(function(key) {
+                const btn = `btn btn-social-icon btn-${key}`;
+                const fa = `fa fa-${key}`;
+
+                    return (
+                        <div>
+                            <a className={btn} href={myLinks[key]}>
+                                <span className={fa}> {key}</span>
+                            </a>
+                        </div>
+                    )
+                });
+
             return (
-                <div>
-                    <a className="btn btn-social-icon btn-facebook">
-                        <span className="fa fa-facebook"><a href={links.facebook} /></span> Facebook
-                    </a><br />
-                    <a className="btn btn-social-icon btn-twitter">
-                        <span className="fa fa-twitter"><a href={links.twitter} /></span> Twitter
-                    </a><br />
-                    <a className="btn btn-social-icon btn-facebook">
-                        <span className="fa fa-soundcloud"><a href={links.soundcloud} /></span> Soundcloud
-                    </a>
-                </div>
+                <div>{socialIcons}</div>
             )
         }
         return <div>loading...</div>
