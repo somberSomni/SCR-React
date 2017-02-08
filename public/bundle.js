@@ -27803,9 +27803,9 @@
 
 	var _Links2 = _interopRequireDefault(_Links);
 
-	var _Products = __webpack_require__(256);
+	var _Releases = __webpack_require__(256);
 
-	var _Products2 = _interopRequireDefault(_Products);
+	var _Releases2 = _interopRequireDefault(_Releases);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27889,7 +27889,7 @@
 	                            'Product'
 	                        ),
 	                        _react2.default.createElement('hr', null),
-	                        _react2.default.createElement(_Products2.default, null),
+	                        _react2.default.createElement(_Releases2.default, { releases: this.state.artists.releases }),
 	                        _react2.default.createElement(
 	                            'h2',
 	                            null,
@@ -28001,7 +28001,7 @@
 /* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -28013,15 +28013,37 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+	var Releases = function Releases(_ref) {
+	    var releases = _ref.releases;
 
-	var Products = function Products(_ref) {
-	    _objectDestructuringEmpty(_ref);
 
-	    return _react2.default.createElement('div', null);
+	    var myReleases = releases;
+
+	    var releaseList = Object.keys(myReleases).map(function (key) {
+	        return _react2.default.createElement(
+	            "div",
+	            null,
+	            _react2.default.createElement("img", { src: myReleases[key]["art"], className: "img-responsive", key: key.id }),
+	            _react2.default.createElement(
+	                "button",
+	                null,
+	                "Buy"
+	            )
+	        );
+	    });
+
+	    return _react2.default.createElement(
+	        "div",
+	        null,
+	        releaseList
+	    );
 	};
 
-	exports.default = Products;
+	Releases.defaultProps = {
+	    releases: {}
+	};
+
+	exports.default = Releases;
 
 /***/ }
 /******/ ]);

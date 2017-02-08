@@ -1,0 +1,27 @@
+import React from 'react';
+
+const Releases = ({releases}) => {
+
+    const myReleases = releases;
+
+    const releaseList = Object.keys(myReleases).map(function(key) {
+        return (
+            <div>
+                <img src={myReleases[key]["art"]} className="img-responsive" key={key.id}/>
+                <button>Buy</button>
+            </div>
+        )
+    });
+
+    return(
+        <div>
+            {releaseList}
+        </div>
+    )
+};
+
+Releases.defaultProps = {
+    releases: {}
+};
+
+export default Releases;

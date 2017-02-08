@@ -11,7 +11,8 @@
           "facebook": "https://www.facebook.com/LAMBDA.SCR/",
           "twitter": "https://twitter.com/princebiomass",
           "soundcloud": "https://soundcloud.com/lammmbda"
-      }
+      },
+      "releases": [{}]
     },
     {
       "name": "MNYNMS",
@@ -24,7 +25,23 @@
         "facebook": "https://www.facebook.com/LAMBDA.SCR/",
         "twitter": "https://twitter.com/princebiomass",
         "soundcloud": "https://soundcloud.com/lammmbda"
-      }
+      },
+      "releases": [
+        {
+          "id": "SCR008",
+          "type": "EP",
+          "name": "Rite fo Passage",
+          "art": "images/album-art.jpg",
+          "buy": "www.amazon.com"
+        },
+        {
+          "id": "SCR009",
+          "type": "EP",
+          "name": "Oracle Remix EP",
+          "art": "images/album-art.jpg",
+          "buy": "www.amazon.com"
+        }
+      ]
     },
     {
       "name": "Night Drive",
@@ -37,7 +54,37 @@
         "facebook": "https://www.facebook.com/LAMBDA.SCR/",
         "twitter": "https://twitter.com/princebiomass",
         "soundcloud": "https://soundcloud.com/lammmbda"
-      }
+      },
+      "releases": [
+        {
+          "id": "SCR001",
+          "type": "Single",
+          "name": "Young Rivals",
+          "art": "images/album-art.jpg",
+          "buy": "www.amazon.com"
+        },
+        {
+          "id": "SCR002",
+          "type": "Single",
+          "name": "Easy to Lie",
+          "art": "images/album-art.jpg",
+          "buy": "www.amazon.com"
+        },
+        {
+          "id": "SCR005",
+          "type": "EP",
+          "name": "Easy to Lie",
+          "art": "images/album-art.jpg",
+          "buy": "www.amazon.com"
+        },
+        {
+          "id": "SCR010",
+          "type": "Single",
+          "name": "Rise and Fall",
+          "art": "images/album-art.jpg",
+          "buy": "www.amazon.com"
+        }
+      ]
     }
   ]
 }

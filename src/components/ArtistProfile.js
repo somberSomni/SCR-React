@@ -3,7 +3,7 @@ import Nav from '../components/Nav';
 import Axios from 'axios';
 import About from '../components/About';
 import Links from '../components/Links';
-import Products from '../components/Products';
+import Releases from '../components/Releases';
 
 class ArtistProfile extends React.Component {
     constructor(props) {
@@ -49,7 +49,7 @@ class ArtistProfile extends React.Component {
 
                         <h2>Product</h2>
                         <hr />
-                        <Products />
+                        <Releases releases={this.state.artists.releases}/>
 
 
                         <h2>Links</h2>
