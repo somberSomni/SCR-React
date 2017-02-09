@@ -6,8 +6,8 @@ const Releases = ({releases}) => {
 
     const releaseList = Object.keys(myReleases).map(function(key) {
         return (
-            <div>
-                <img src={myReleases[key]["art"]} className="img-responsive" key={key.id}/>
+            <div key={key}>
+                <img src={myReleases[key]["art"]} className="img-responsive" />
                 <button>Buy</button>
             </div>
         )

@@ -9,7 +9,7 @@ const Links = ({links}) => {
         const fa = `fa fa-${key}`;
 
         return (
-            <div>
+            <div key={key}>
                 <a className={btn} href={myLinks[key]}>
                     <span className={fa}> {key}</span>
                 </a>

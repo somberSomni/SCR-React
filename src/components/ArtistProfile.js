@@ -4,12 +4,15 @@ import Axios from 'axios';
 import About from '../components/About';
 import Links from '../components/Links';
 import Releases from '../components/Releases';
+import SC from 'soundcloud';
 
 class ArtistProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            artists: []
+            clientId: 'qar87rq7vEGGfgjM0PqrmTBUYhSzUcQ5',
+            artists: [],
+            stream: ''
         }
     }
 
@@ -24,6 +27,18 @@ class ArtistProfile extends React.Component {
                         });
                     }
                 }
+            });
+
+        SC.initialize({
+            client_id: this.state.clientId
+        });
+
+        SC.get('/tracks/293434916')
+            .then((track) => {
+                console.log(track);
+                this.setState({
+                    stream: track.stream_url
+                });
             });
     }
 
@@ -42,6 +57,7 @@ class ArtistProfile extends React.Component {
                         <h2>About</h2>
                         <div className="well">
                             <About artists={this.state.artists}/>
+                            <audio controls src={`${this.state.stream}?client_id=${this.state.clientId}`} />
                         </div>
                     </div>
 
