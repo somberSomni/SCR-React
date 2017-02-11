@@ -32,10 +32,6 @@ p {
     font-size: xx-large;
 }
 
-.feature-text {
-    font-size: 16px;
-}
-
 hr {
     border-width: 2px;
     color: black;
@@ -135,4 +131,103 @@ hr {
     position:relative;
     top:1px;
 }
-
+.artist-links {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+/* featured jumbotron */
+#featureWrapper{
+    position: relative;
+    z-index: 1;
+}
+#featuretron{
+    border-radius: 2vw 2vw 0% 0%;
+    background: yellow;
+}
+/* artist icon to show user who is featured if necessary */
+.feature-icon{
+    position: absolute;
+    display: block;
+    z-index: 2;
+    right: 0px;
+    background-position: center;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    transform: translate(10px, 10px);
+    -moz-transform: translate(10px, 10px);
+    -webkit-transform: translate(10px, 10px);
+    -ms-transform: translate(10px, 10px);
+    animation: lightLanding 2s ease-in-out alternate infinite;
+    -moz-animation: lightLanding 2s ease-in-out alternate infinite;
+    background: red;
+    width: 100px;
+    height: 100px;
+    border-radius: 50% 50% 50% 50%;
+}
+.feature-text {
+    position: relative;
+    font-size: 16px;
+}
+.feature-text h1{
+    position: relative;
+    transform: translateX(-40%);
+    left: 50%;
+}
+.feature-text p{
+    padding: 2em;
+}
+.feature-text p:first-letter{
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: -2px 1px rgba(255,0,0,.5);
+}
+.feature-text p:first-line {
+    color: purple;
+}
+/* audio player options*/
+.player-components{
+    width: 25px;
+    height: 25px;
+    color: white;
+    transition: background 1s;
+}
+.player-components span[class *= 'glyphicon']{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+.player-components:hover{
+    cursor: pointer;
+}
+.player-wrapper{
+   position: absolute;
+   z-index:0;
+}
+/* animations */
+@keyframes lightLanding {
+    0%{
+      opacity: 0;
+      transform: translate(10px, -10px);  
+    }
+    100%{
+      opacity: 1;
+      transform: translate(10px, 10px);
+    }
+}
+@-moz-keyframes lightLanding {
+    0%{
+      opacity: 0;
+      transform: translate(10px, -10px);  
+    }
+    100%{
+      opacity: 1;
+      transform: translate(10px, 10px);
+    }
+}
