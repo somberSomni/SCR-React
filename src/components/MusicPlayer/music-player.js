@@ -1,4 +1,5 @@
 import React from 'react';
+import { MusicComponent } from './music-component';
 
 var playerSettings = {
         x: 0,
@@ -20,74 +21,49 @@ var playerSettings = {
             settings: [{ position: { x: 0, y: 0} }]
         }
 };
-
-class MusicComponent extends React.Component{
+/* 
+                    Music Player 
+    acts as the ultimate player wrapper
+    for importing anywhere in the page.
+    example: 
+    <MusicPlayer components={ components }  initalColor={} activeColor={}/>
+    
+    **components**
+    you can pass the MusicPlayer object an array of what components you want
+    included in the player
+    and when it loads you will see these player components such as the play
+    button or stop button cohesively propagate into the div wrapper
+    
+    **styler**
+    the styler allows you to pass and object that contains the neccesary colors and or
+    css settings for the button you wanted implemented using javascript
+*/
+export class MusicPlayer extends React.Component{
     constructor(props){
         super(props);
-        this.audioController = null;
-        this.allComponents = null;
-        this.isActive = false;
         this.state = {
-            icon: this.props.glyphicon,
-            styler: {
-                background: 'black'
+            initial: {
+                color: this.props.initialColor
+            },
+            active: {
+                color: this.props.activeColor
             }
         };
     }
-    hoverOff(){
-        if(this.isActive){
-             this.setState({ styler:{ background: 'green'} });
-        } else {
-            this.setState({ styler:{ background: 'black'} });
-        }
+    loadComponents(){
+        var tempPackage = this.props.components.map((comp)=>{
+          return <MusicComponent type={ comp.type } glyphicon={ comp.glyphicon } initialColor={ this.state.initial.color } activeColor={ this.state.active.color }/>;        
+        });
+        return <div>{tempPackage}</div>;
+       
     }
-    pressed(){
-        this.isActive = !this.isActive;
-        switch(this.props.type){
-            case 'play':
-                if(this.state.icon === this.props.glyphicon){
-                    this.audioController.play();
-                    this.setState({ icon: 'glyphicon-pause'});
-                } else{
-                    this.audioController.pause();
-                    this.setState({ icon: 'glyphicon-play'}); 
-                }
-                break;
-            case 'stop':
-                this.audioController.pause();
-                this.audioController.currentTime = 0;
-                break;
-            case 'repeat':
-                this.setState({ styler:{ background: 'green' }});
-            default:
-        }
-    }
-    componentDidMount(){
-        this.audioController = document.querySelector('#audio-controller');
-        /*  
-            this will grab every player component on the dom 
-            so be aware if you put multiple players on site 
-                                                            */
-        this.allComponents = document.querySelectorAll('.player-components'); 
-    }
-    render(){
-        return (
-            <div style={ this.state.styler } className={"player-components "+this.props.type} onMouseOut={(e)=>{ this.hoverOff() } } onMouseOver={ (e)=>{ this.setState({ styler:{ background: 'green'} }); } } onClick={ (e)=>{ this.pressed(); } } >
-                 <span className={ "glyphicon "+this.state.icon }></span>
-            </div>
-        );
-    }
-}
-export class MusicPlayer extends React.Component{
     render(){
         return (
             <div className="player-wrapper col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <audio id="audio-controller">
                     <source src= { artist.audio.src[0] }/>
                 </audio>
-                <MusicComponent type="play" glyphicon="glyphicon-play"/>
-                <MusicComponent type="stop" glyphicon="glyphicon-stop"/>
-                <MusicComponent type="repeat" glyphicon="glyphicon-repeat"/>                
+                { this.loadComponents() }
             </div>
         );
     }
