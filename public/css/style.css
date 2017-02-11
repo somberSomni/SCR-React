@@ -145,7 +145,7 @@ hr {
     border-radius: 2vw 2vw 0% 0%;
     background: yellow;
 }
-/* artist icon to show user who is featured if necessary */
+/* artist icon that appears over feature banner to show user who is featured if necessary */
 .feature-icon{
     position: absolute;
     display: block;
@@ -160,8 +160,8 @@ hr {
     -moz-transform: translate(10px, 10px);
     -webkit-transform: translate(10px, 10px);
     -ms-transform: translate(10px, 10px);
-    animation: lightLanding 2s ease-in-out alternate infinite;
-    -moz-animation: lightLanding 2s ease-in-out alternate infinite;
+    animation: lightLanding 2s ease-in-out forward;
+    -moz-animation: lightLanding 2s ease-in-out forward;
     background: red;
     width: 100px;
     height: 100px;
