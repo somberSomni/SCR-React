@@ -17,6 +17,9 @@ var headerTitle = "Latest Release",
             type: "audio/wav",
         },
         icon: "icon.jpg",
+        theme: {
+            color: 'rgba(0,50,200,1)'
+        },
         imgs: {
             /* seperated by [source] and [settings] for source per object in array*/
             src: ["rf.jpg"],
@@ -67,7 +70,7 @@ class FeaturedRelease extends React.Component{
                         { artist.summary }
                     </p>
                 </div> 
-                <MusicPlayer />
+                <MusicPlayer components={ [{ type: 'play', glyphicon: 'glyphicon-play'}, { type: 'stop', glyphicon: 'glyphicon-stop'}, { type: 'repeat', glyphicon: 'glyphicon-repeat'},] } initialColor="rgba(255,100,0,1)" activeColor={ artist.theme.color }/>
        
             </header>
         )
@@ -75,7 +78,7 @@ class FeaturedRelease extends React.Component{
 }
 export default FeaturedRelease;
 
- /*
+                    /*
                     <div className="artist-links">
                         <a className="spread-btn btn-spotify"
                            href="https://open.spotify.com/track/5hl22gaWiQVhI6rYFmfJvq"><span className="glyphicon glyphicon-cd"></span></a>
@@ -85,3 +88,4 @@ export default FeaturedRelease;
                         <a className="spread-btn btn-buy" href="#"><span className="glyphicon glyphicon-shopping-cart"></span></a>
                     </div>
                     */
+}
