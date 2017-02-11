@@ -25,6 +25,7 @@ class MusicComponent extends React.Component{
     constructor(props){
         super(props);
         this.audioController = null;
+        this.allComponents = null;
         this.isActive = false;
         this.state = {
             icon: this.props.glyphicon,
