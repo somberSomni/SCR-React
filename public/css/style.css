@@ -160,8 +160,8 @@ hr {
     -moz-transform: translate(10px, 10px);
     -webkit-transform: translate(10px, 10px);
     -ms-transform: translate(10px, 10px);
-    animation: lightLanding 2s ease-in-out forward;
-    -moz-animation: lightLanding 2s ease-in-out forward;
+    animation: lightLanding 2s ease-in-out normal forwards;
+    -moz-animation: lightLanding 2s ease-in-out normal forwards;
     background: red;
     width: 100px;
     height: 100px;
