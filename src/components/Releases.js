@@ -8,7 +8,8 @@ const Releases = ({releases}) => {
         return (
             <div key={key}>
                 <img src={myReleases[key]["art"]} className="img-responsive" />
-                <button>Buy</button>
+                <button className="myButton">Buy</button>
+                <hr />
             </div>
         )
     });

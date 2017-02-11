@@ -26638,7 +26638,7 @@
 	                    _react2.default.createElement(
 	                        'h1',
 	                        { className: 'page-header' },
-	                        'Artists'
+	                        'ARTISTS'
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -27828,9 +27828,8 @@
 	        var _this = _possibleConstructorReturn(this, (ArtistProfile.__proto__ || Object.getPrototypeOf(ArtistProfile)).call(this, props));
 
 	        _this.state = {
-	            clientId: 'qar87rq7vEGGfgjM0PqrmTBUYhSzUcQ5',
 	            artists: [],
-	            stream: ''
+	            feature: ""
 	        };
 	        return _this;
 	    }
@@ -27845,26 +27844,25 @@
 	                for (var i = 0; i < len; i++) {
 	                    if (_this2.props.params.username === result.data.artists[i].id) {
 	                        _this2.setState({
-	                            artists: result.data.artists[i]
+	                            artists: result.data.artists[i],
+	                            feature: result.data.artists[i].feature
 	                        });
 	                    }
 	                }
-	            });
-
-	            _soundcloud2.default.initialize({
-	                client_id: this.state.clientId
-	            });
-
-	            _soundcloud2.default.get('/tracks/293434916').then(function (track) {
-	                console.log(track);
-	                _this2.setState({
-	                    stream: track.stream_url
-	                });
 	            });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
+
+	            _soundcloud2.default.initialize({
+	                client_id: 'qar87rq7vEGGfgjM0PqrmTBUYhSzUcQ5'
+	            });
+
+	            _soundcloud2.default.oEmbed(this.state.feature, {
+	                element: document.getElementById('widget')
+	            });
+
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'main-container' },
@@ -27889,14 +27887,12 @@
 	                        _react2.default.createElement(
 	                            'h2',
 	                            null,
-	                            'About'
+	                            'ABOUT'
 	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'well' },
-	                            _react2.default.createElement(_About2.default, { artists: this.state.artists }),
-	                            _react2.default.createElement('audio', { controls: true, src: this.state.stream + '?client_id=' + this.state.clientId })
-	                        )
+	                        _react2.default.createElement('hr', null),
+	                        _react2.default.createElement('div', { id: 'widget' }),
+	                        _react2.default.createElement('br', null),
+	                        _react2.default.createElement(_About2.default, { artists: this.state.artists })
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
@@ -27904,7 +27900,7 @@
 	                        _react2.default.createElement(
 	                            'h2',
 	                            null,
-	                            'Product'
+	                            'RELEASES'
 	                        ),
 	                        _react2.default.createElement('hr', null),
 	                        _react2.default.createElement(_Releases2.default, { releases: this.state.artists.releases }),
@@ -27924,7 +27920,10 @@
 	    return ArtistProfile;
 	}(_react2.default.Component);
 
-	;
+	ArtistProfile.defaultProps = {
+	    artists: [],
+	    feature: ""
+	};
 
 	exports.default = ArtistProfile;
 
@@ -28044,9 +28043,10 @@
 	            _react2.default.createElement("img", { src: myReleases[key]["art"], className: "img-responsive" }),
 	            _react2.default.createElement(
 	                "button",
-	                null,
+	                { className: "myButton" },
 	                "Buy"
-	            )
+	            ),
+	            _react2.default.createElement("hr", null)
 	        );
 	    });
 
