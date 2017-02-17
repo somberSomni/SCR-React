@@ -11,7 +11,7 @@ class ArtistProfile extends React.Component {
         super(props);
         this.state = {
             artists: [],
-            feature: ""
+            feature: "",
         }
     }
 
@@ -25,22 +25,15 @@ class ArtistProfile extends React.Component {
                             artists: result.data.artists[i],
                             feature: result.data.artists[i].feature
                         });
+
+                        SC.initialize({client_id: 'qar87rq7vEGGfgjM0PqrmTBUYhSzUcQ5'});
+                        SC.oEmbed(this.state.feature, {element: document.getElementById('widget')});
                     }
                 }
             });
     }
 
     render() {
-
-        SC.initialize({
-            client_id: 'qar87rq7vEGGfgjM0PqrmTBUYhSzUcQ5'
-        });
-
-        SC.oEmbed(this.state.feature, {
-            element: document.getElementById('widget')
-        });
-
-
         return (
             <div className="main-container">
                 <br />
@@ -51,9 +44,9 @@ class ArtistProfile extends React.Component {
 
                 <div className="container">
 
-                    <h1 className="page-header">{this.state.artists.name}</h1>
-
-                    <img src={this.state.artists.header} className="img-responsive"/>
+                    <div style={ { backgroundImage: 'url('+this.state.artists.header+')' }} className='artist-header col-lg-12 col-md-12'>
+                        <h1>{this.state.artists.name}</h1>
+                    </div>
 
                     <div className="col-md-9">
                         <h2>ABOUT</h2>
@@ -70,7 +63,7 @@ class ArtistProfile extends React.Component {
                         <hr />
                         <Releases releases={this.state.artists.releases}/>
 
-                        <h2>Links</h2>
+                        <h2>LINKS</h2>
                         <hr />
                         <Links links={this.state.artists.links} />
                     </div>
@@ -87,3 +80,4 @@ ArtistProfile.defaultProps = {
 };
 
 export default ArtistProfile
+
