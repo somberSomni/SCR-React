@@ -12,6 +12,7 @@
     top: 0px;
     left: 50%;
     transform: translateX(-25%);
+    margin-top: 10px;
     
 }
 .nav-header{
@@ -51,11 +52,11 @@
     cursor: pointer;    
 }
 .nav-menu li:hover{
-    background: rgba(255, 0, 255,1);
     top: 1px;
     left: 1px;
 }
 a:hover{
+    color: darkgray;
     text-decoration: none;
     list-style: none;
 }
