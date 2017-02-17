@@ -3,34 +3,23 @@ import React from 'react'
 const Nav = ({}) => {
     return (
         <nav className="navbar" role="navigation">
-            <div className="container">
-                <div className="navbar-header">
-                    <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span className="sr-only">Toggle navigation</span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                    </button>
-                    <a className="navbar-brand" href="http://localhost:3000/">SOUND CONTROL RECORDS</a>
+            <div>
+                <div className="nav-header">
+                    <a href="http://localhost:3000/"><img src='images/sound-control-logo.png'/></a>
                 </div>
 
-                <div className="collapse navbar-collapse" id="navbar">
-                    <ul className="nav navbar-nav">
+                <div className="menu-wrapper">
+                    <ul className="nav-menu">
                         <li>
-                            <a href="#">NEWS</a>
+                            <a href="http://localhost:3000">NEWS</a>
                         </li>
                         <li>
-                            <a href="#">DISCOGRAPHY</a>
+                            <a href="http://localhost:3000/#/?_k=i0od1w/discography">DISCOGRAPHY</a>
                         </li>
                         <li>
-                            <a href="http://localhost:3000/#/?_k=dzkgj6/Artists">ARTISTS</a>
-                        </li>
-                        <li>
-                            <a href="#">STORE</a>
+                            <a href="http://localhost:3000/#/?_k=i0od1w/artists">ARTISTS</a>
                         </li>
                     </ul>
-                    <hr />
                 </div>
             </div>
         </nav>
