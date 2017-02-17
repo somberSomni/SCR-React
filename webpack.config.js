@@ -3,6 +3,7 @@ module.exports = {
     output: {
         filename: 'public/bundle.js'
     },
+    watch: true,
     resolve: {
         extensions: ['', '.js', '.jsx']
     },
