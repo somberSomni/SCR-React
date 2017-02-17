@@ -1,4 +1,6 @@
 @import url('navigation.css');
+@import url('discography.css');
+@import url('artists.css');
 @import url('https://fonts.googleapis.com/css?family=Abel|Cabin:400,700');
 
 h1, h2, h3, a {
